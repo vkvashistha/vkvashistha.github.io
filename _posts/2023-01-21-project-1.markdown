@@ -7,5 +7,8 @@ alt: gwynniebee
 project-date: Nov 2015 - Jun 2022
 client: CaaStle (Formerly Gwynniebee)
 category: Android Development
-description: Play Store URL
+description: Play Store URL - https://play.google.com/store/apps/details?id=com.gwynniebee.gbcloset <br>The subscription base E-Commerce App contains the following modules (developed from scratch):- <br><ol><li> Login (email and social login), Home screen, Collection screen, Product Screen, Filter and Sort, Loyalty Rewards, Write a Review, Size Advisor and Size Chart, Closet Screen, Payment screen (TTB and Dart), etc. <li> Payment integration with stripe.<li>Push Notification, In-App Notifications using Salesforce Marketing Cloud
+<li>Dynamic Link
+<li>Google Analytics with Google Tag Manager
+<li>Appium, Espresso, Robolectric, JUnit tests with 90% code coverage.
 ---
