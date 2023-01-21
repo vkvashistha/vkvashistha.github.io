@@ -19,3 +19,4 @@ description: A subscription-based E-Commerce Android app fully developed from sc
 9. Espresso, Robolectric, JUnit, and Appium automation tests with above 90% code coverage
 Play Store URL - https://play.google.com/store/apps/details?id=com.haverdash.closet
 ---
+An E-Commerce app developed from scratch using Android SDK, Java and Kotlin. This includes automation testing using Espresso, Robolectric, Junit, Appium. Major modules implemented- Login (email and social Login), Dynamic Landing Screen (or Home Screen), Collection Screen, Product Screen, Filter and Sort, Auto Size Advisor and Size Chart, Loyalty Rewards, Payments module, Push Notification, In App Notification, Google Analytics and Tag Manager. You can find this app on <a href="https://play.google.com/store/apps/details?id=com.haverdash.closet" targer="_blank">Google Play Store</a>
