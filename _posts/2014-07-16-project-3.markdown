@@ -1,11 +1,11 @@
 ---
 layout: default
 modal-id: 3
-date: 2014-07-16
-img: circus.png
-alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+date: 2023-01-23
+img: noaa.png
+alt: NOAA
+project-date: Jun 2022 - April 2023
+client: NOAA
+category: Android App Development
+description: US Government Project from national oceanic and atmospheric administration (NOAA). This is a private enterprise app built for Android Tablet, using Android SDK, Java, Espresso and JUnit. The entire legacy code was refurbished with state of the art architecture which includes code optimisation, enhanced scalability to support unlimited number of workspaces, various bug fixes and performance tuning. Major modules includes- User Form builder (to take user input data), SQLite Database operations, Camera, Image Picker, File read/write operations, Barcode Scanning.
 ---
