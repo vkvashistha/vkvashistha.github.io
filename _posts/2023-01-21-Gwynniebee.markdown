@@ -2,7 +2,7 @@
 layout: default
 modal-id: 1
 date: 2023-01-21
-img: gwynniebee.png
+img: gwynniebee.webp
 alt: gwynniebee
 project-date: Nov 2015 - Jun 2022
 client: CaaStle (Formerly Gwynniebee)

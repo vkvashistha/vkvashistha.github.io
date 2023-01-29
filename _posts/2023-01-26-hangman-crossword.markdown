@@ -2,7 +2,7 @@
 layout: default
 modal-id: 4
 date: 2014-07-15
-img: hangman_crosswords.jpeg
+img: hangman_crosswords.webp
 alt: Hangman Crosswords
 project-date: Jan 2014 - Dec 2015
 client: Spice Labs

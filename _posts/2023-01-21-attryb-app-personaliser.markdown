@@ -2,7 +2,7 @@
 layout: default
 modal-id: 5
 date: 2014-07-14
-img: attryb.svg
+img: attryb.webp
 alt: Attryb App Personaliser
 project-date: May 2022 - Sep 2022
 client: Attryb

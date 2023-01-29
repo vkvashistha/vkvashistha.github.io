@@ -2,7 +2,7 @@
 layout: default
 modal-id: 2
 date: 2023-01-21
-img: haverdash.png
+img: haverdash.webp
 alt: Haverdash Ecommerce App
 project-date: Jan 2018 - Dec 2021
 client: CaaStle
