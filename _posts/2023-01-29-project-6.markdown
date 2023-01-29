@@ -7,5 +7,5 @@ alt: Running Circles
 project-date: April 2014
 client: Spice Labs
 category: Game Development
-description: A 2D Arcade game built on <b>LibGDX Game Engine</b> targeted Android and iOS. This also includes Game Content Generator Program to generate levels. <img src="100circles.png"><img src="100circles_1.png"><img src="100circles_2.png">
+description: A 2D Arcade game built on <b>LibGDX Game Engine</b> targeted Android and iOS. This also includes Game Content Generator Program to generate levels. <br/><img src="/img/portfolio/100circles.png"><img src="/img/portfolio/100circles_1.png"><img src="/img/portfolio/100circles_2.png">
 ---
