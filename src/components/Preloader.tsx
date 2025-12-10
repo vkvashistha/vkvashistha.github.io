@@ -1,4 +1,7 @@
 export default function Preloader() {
-  return <div id="preloader"></div>
+  return (
+    <div className="preloader">
+      <div className="preloader-spinner" />
+    </div>
+  )
 }
-

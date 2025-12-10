@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react'
-import overlayBg from '../assets/img/overlay-bg.jpg'
+import { motion } from 'framer-motion'
+import { Mail, MapPin, Calendar, Linkedin, Github, Twitter } from 'lucide-react'
 
 interface FormData {
   name: string
@@ -24,7 +25,6 @@ export default function Contact() {
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitted, setSubmitted] = useState(false)
-  const [submitError, setSubmitError] = useState('')
 
   const validateEmail = (email: string) => {
     const emailExp = /^[^\s()<>@,;:/]+@\w[\w.-]+\.[a-z]{2,}$/i
@@ -34,8 +34,8 @@ export default function Contact() {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
 
-    if (formData.name.length < 4) {
-      newErrors.name = 'Please enter at least 4 chars'
+    if (formData.name.length < 2) {
+      newErrors.name = 'Please enter your name'
     }
 
     if (!validateEmail(formData.email)) {
@@ -43,11 +43,11 @@ export default function Contact() {
     }
 
     if (formData.subject.length < 4) {
-      newErrors.subject = 'Please enter at least 4 chars of subject'
+      newErrors.subject = 'Please enter a subject'
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Please write something for us'
+      newErrors.message = 'Please enter your message'
     }
 
     setErrors(newErrors)
@@ -57,10 +57,11 @@ export default function Contact() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     setSubmitted(false)
-    setSubmitError('')
 
     if (validateForm()) {
-      // Since we don't have a backend, just show success message
+      // Create mailto link as fallback
+      const mailtoLink = `mailto:vkvashistha@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`
+      window.location.href = mailtoLink
       setSubmitted(true)
       setFormData({
         name: '',
@@ -77,7 +78,6 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }))
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({
         ...prev,
@@ -87,156 +87,189 @@ export default function Contact() {
   }
 
   return (
-    <section
-      className="paralax-mf footer-paralax bg-image sect-mt4 route"
-      style={{ backgroundImage: `url(${overlayBg})` }}
-    >
-      <div className="overlay-mf"></div>
+    <section id="contact" className="contact-section section">
       <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-            <div className="contact-mf">
-              <div id="contact" className="box-shadow-full">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="title-box-2">
-                      <h5 className="title-left">Send Message Us</h5>
-                    </div>
-                    <div>
-                      <form onSubmit={handleSubmit} className="contactForm">
-                        {submitted && (
-                          <div id="sendmessage" className="show">
-                            Your message has been sent. Thank you!
-                          </div>
-                        )}
-                        {submitError && (
-                          <div id="errormessage" className="show">
-                            {submitError}
-                          </div>
-                        )}
-                        <div className="row">
-                          <div className="col-md-12 mb-3">
-                            <div className="form-group">
-                              <input
-                                type="text"
-                                name="name"
-                                className="form-control"
-                                id="name"
-                                placeholder="Your Name"
-                                value={formData.name}
-                                onChange={handleChange}
-                              />
-                              {errors.name && <div className="validation show">{errors.name}</div>}
-                            </div>
-                          </div>
-                          <div className="col-md-12 mb-3">
-                            <div className="form-group">
-                              <input
-                                type="email"
-                                className="form-control"
-                                name="email"
-                                id="email"
-                                placeholder="Your Email"
-                                value={formData.email}
-                                onChange={handleChange}
-                              />
-                              {errors.email && <div className="validation show">{errors.email}</div>}
-                            </div>
-                          </div>
-                          <div className="col-md-12 mb-3">
-                            <div className="form-group">
-                              <input
-                                type="text"
-                                className="form-control"
-                                name="subject"
-                                id="subject"
-                                placeholder="Subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                              />
-                              {errors.subject && <div className="validation show">{errors.subject}</div>}
-                            </div>
-                          </div>
-                          <div className="col-md-12 mb-3">
-                            <div className="form-group">
-                              <textarea
-                                className="form-control"
-                                name="message"
-                                rows={5}
-                                placeholder="Message"
-                                value={formData.message}
-                                onChange={handleChange}
-                              ></textarea>
-                              {errors.message && <div className="validation show">{errors.message}</div>}
-                            </div>
-                          </div>
-                          <div className="col-md-12">
-                            <button type="submit" className="button button-a button-big button-rouded">
-                              Send Message
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="title-box-2 pt-4 pt-md-0">
-                      <h5 className="title-left">Get in Touch</h5>
-                    </div>
-                    <div className="more-info">
-                      <p className="lead">
-                        Looking for expert guidance on your next tech project? Whether you need consultation on
-                        architecture, mobile development, or AI integration, I'm here to help. Let's collaborate to
-                        bring your ideas to life with cutting-edge solutions tailored to your needs.
-                      </p>
-                      <ul className="list-ico">
-                        <li>
-                          <span className="ion-ios-location"></span> Faridabad (Haryana), India
-                        </li>
-                        <li>
-                          <span className="ion-ios-telephone"></span>{' '}
-                          <a href="https://cal.com/vivek-vashistha/30min" target="_blank" rel="noopener noreferrer">
-                            https://cal.com/vivek-vashistha/30min
-                          </a>
-                        </li>
-                        <li>
-                          <span className="ion-email"></span> vkvashistha@gmail.com
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="socials">
-                      <ul>
-                        <li>
-                          <a href="https://www.linkedin.com/in/vkvashistha/" target="_blank" rel="noopener noreferrer">
-                            <span className="ico-circle">
-                              <i className="ion-social-linkedin"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://github.com/vkvashistha" target="_blank" rel="noopener noreferrer">
-                            <span className="ico-circle">
-                              <i className="ion-social-github"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://x.com/vkvashistha1" target="_blank" rel="noopener noreferrer">
-                            <span className="ico-circle">
-                              <i className="ion-social-twitter"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2>Get In Touch</h2>
+          <p>Have a project in mind? Let's discuss how I can help.</p>
+        </motion.div>
+        
+        <div className="contact-grid">
+          <motion.div 
+            className="contact-info"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Let's Connect</h2>
+            <p>
+              The fastest way to reach me is through scheduling a call. 
+              I typically respond within 24 hours on business days.
+            </p>
+            
+            <div className="contact-methods">
+              <a 
+                href="https://cal.com/vivek-vashistha/30min" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="contact-method"
+                style={{ textDecoration: 'none' }}
+              >
+                <div className="contact-method-icon">
+                  <Calendar size={24} />
+                </div>
+                <div className="contact-method-content">
+                  <h4>Book a Call</h4>
+                  <p>Schedule a free 30-min strategy session</p>
+                </div>
+              </a>
+              
+              <div className="contact-method">
+                <div className="contact-method-icon">
+                  <Mail size={24} />
+                </div>
+                <div className="contact-method-content">
+                  <h4>Email</h4>
+                  <a href="mailto:vkvashistha@gmail.com">vkvashistha@gmail.com</a>
+                </div>
+              </div>
+              
+              <div className="contact-method">
+                <div className="contact-method-icon">
+                  <MapPin size={24} />
+                </div>
+                <div className="contact-method-content">
+                  <h4>Location</h4>
+                  <p>Faridabad (Haryana), India</p>
                 </div>
               </div>
             </div>
-          </div>
+            
+            <div className="contact-socials">
+              <h4>Connect on Social</h4>
+              <div className="social-links">
+                <a 
+                  href="https://www.linkedin.com/in/vkvashistha/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a 
+                  href="https://github.com/vkvashistha" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  aria-label="GitHub"
+                >
+                  <Github size={20} />
+                </a>
+                <a 
+                  href="https://x.com/vkvashistha1" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  aria-label="Twitter"
+                >
+                  <Twitter size={20} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="contact-form-container"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3>Send a Message</h3>
+            <form onSubmit={handleSubmit}>
+              {submitted && (
+                <div style={{ 
+                  padding: '1rem', 
+                  background: 'var(--accent-glow)', 
+                  color: 'var(--accent)',
+                  borderRadius: 'var(--border-radius)',
+                  marginBottom: '1rem',
+                  fontWeight: 500
+                }}>
+                  Opening your email client...
+                </div>
+              )}
+              
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="form-control-custom"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                {errors.name && <span style={{ color: 'red', fontSize: '0.875rem' }}>{errors.name}</span>}
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="form-control-custom"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <span style={{ color: 'red', fontSize: '0.875rem' }}>{errors.email}</span>}
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  className="form-control-custom"
+                  placeholder="Project inquiry"
+                  value={formData.subject}
+                  onChange={handleChange}
+                />
+                {errors.subject && <span style={{ color: 'red', fontSize: '0.875rem' }}>{errors.subject}</span>}
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  className="form-control-custom"
+                  placeholder="Tell me about your project..."
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+                {errors.message && <span style={{ color: 'red', fontSize: '0.875rem' }}>{errors.message}</span>}
+              </div>
+              
+              <button type="submit" className="btn-primary-custom" style={{ width: '100%' }}>
+                Send Message
+              </button>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
-

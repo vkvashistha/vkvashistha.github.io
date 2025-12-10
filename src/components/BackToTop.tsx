@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
+import { ChevronUp } from 'lucide-react'
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 100)
+      setVisible(window.scrollY > 300)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToTop = (e: React.MouseEvent) => {
-    e.preventDefault()
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -21,14 +21,12 @@ export default function BackToTop() {
   }
 
   return (
-    <a
-      href="#"
-      className="back-to-top"
+    <button 
+      className={`back-to-top ${visible ? 'visible' : ''}`}
       onClick={scrollToTop}
-      style={{ display: visible ? 'block' : 'none' }}
+      aria-label="Back to top"
     >
-      <i className="fa fa-chevron-up"></i>
-    </a>
+      <ChevronUp size={24} />
+    </button>
   )
 }
-
