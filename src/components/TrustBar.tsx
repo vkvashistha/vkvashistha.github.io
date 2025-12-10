@@ -1,12 +1,20 @@
 import { motion } from 'framer-motion'
+import turingLogo from '../assets/img/logos/turing_logo.avif'
+import caastleLogo from '../assets/img/logos/CaaStle_Logo.jpg'
+import convegeniusLogo from '../assets/img/logos/convegenius_logo.png'
+import attrybLogo from '../assets/img/logos/attryb_logo.svg'
+import spiceLogo from '../assets/img/logos/spice_logo.png'
+import shorthillsLogo from '../assets/img/logos/shorthills_logo.png'
+import madgicalLogo from '../assets/img/logos/madgical_techdom_logo.svg'
 
 const companies = [
-  { name: 'Turing', icon: '🚀' },
-  { name: 'CaaStle', icon: '👗' },
-  { name: 'Convegenius', icon: '🎓' },
-  { name: 'Microsoft', icon: '💼' },
-  { name: 'Meta', icon: '📱' },
-  { name: 'Character AI', icon: '🤖' },
+  { name: 'Turing', logo: turingLogo },
+  { name: 'CaaStle', logo: caastleLogo },
+  { name: 'Convegenius', logo: convegeniusLogo },
+  { name: 'Attryb', logo: attrybLogo },
+  { name: 'Spice Labs', logo: spiceLogo },
+  { name: 'Shorthills', logo: shorthillsLogo },
+  { name: 'Madgical Techdom', logo: madgicalLogo },
 ]
 
 export default function TrustBar() {
@@ -39,8 +47,10 @@ export default function TrustBar() {
               transition={{ duration: 0.3, delay: 0.1 * index }}
               whileHover={{ scale: 1.05 }}
             >
-              <span style={{ fontSize: '1.5rem' }}>{company.icon}</span>
-              {company.name}
+              <img 
+                src={company.logo} 
+                alt={`${company.name} logo`}
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -48,4 +58,3 @@ export default function TrustBar() {
     </section>
   )
 }
-
