@@ -41,6 +41,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Ensure .nojekyll exists
+        run: |
+          touch dist/.nojekyll
+          echo "Verifying .nojekyll file:"
+          ls -la dist/.nojekyll
+          echo "Files in dist root:"
+          ls -la dist/ | head -10
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
