@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const stats = [
   { value: '25+', label: 'AI Chatbots Built' },
@@ -14,9 +15,60 @@ const techStack = [
   'Vector DB', 'OpenAI', 'FastAPI', 'React', 'WhatsApp API'
 ]
 
+const edtechStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "EdTech AI Platform - Convegenius.ai Case Study",
+  "description": "Built 25+ RAG-based AI chatbots for Convegenius.ai, serving 3.5 million subscribers with personalized learning experiences across multiple subjects and themes.",
+  "author": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "datePublished": "2024-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vivekvashistha.me/case-study/edtech-ai"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vivekvashistha.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Case Studies",
+        "item": "https://vivekvashistha.me/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "EdTech AI Platform",
+        "item": "https://vivekvashistha.me/case-study/edtech-ai"
+      }
+    ]
+  }
+}
+
 export default function CaseStudyEdtech() {
   return (
     <div className="case-study-page">
+      <SEO
+        title="EdTech AI Platform - Convegenius.ai Case Study"
+        description="Built 25+ RAG-based AI chatbots for Convegenius.ai, serving 3.5 million subscribers with personalized learning experiences across multiple subjects and themes."
+        keywords="RAG chatbots, EdTech AI, Langgraph, Python, LLM, Convegenius, AI education, personalized learning"
+        url="/case-study/edtech-ai"
+        type="article"
+        structuredData={edtechStructuredData}
+      />
       {/* Hero */}
       <section className="case-study-hero">
         <div className="container">

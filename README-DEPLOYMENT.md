@@ -17,7 +17,7 @@ Make sure these files are committed to your repository:
 ## After Deployment
 1. Wait 2-3 minutes for GitHub Pages to process the deployment
 2. Clear your browser cache or use incognito mode
-3. Verify `.nojekyll` is deployed by visiting: `https://vkvashistha.github.io/.nojekyll`
+3. Verify `.nojekyll` is deployed by visiting: `https://vivekvashistha.me/.nojekyll`
    - Should return a 200 status (even if empty)
 
 ## Troubleshooting

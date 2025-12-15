@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const stats = [
   { value: '25+', label: 'Brands Launched' },
@@ -14,9 +15,60 @@ const techStack = [
   'Retrofit', 'Room', 'Appium', 'CI/CD', 'Firebase'
 ]
 
+const ecommerceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "E-Commerce Mobile Platform - CaaStle Case Study",
+  "description": "Architected and built a multi-tenant mobile platform for CaaStle, enabling 25+ apparel brands including Gwynniebee, Haverdash, and Teacher Style Box to launch their mobile apps.",
+  "author": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "datePublished": "2024-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vivekvashistha.me/case-study/ecommerce-mobile"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vivekvashistha.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Case Studies",
+        "item": "https://vivekvashistha.me/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "E-Commerce Mobile Platform",
+        "item": "https://vivekvashistha.me/case-study/ecommerce-mobile"
+      }
+    ]
+  }
+}
+
 export default function CaseStudyEcommerce() {
   return (
     <div className="case-study-page">
+      <SEO
+        title="E-Commerce Mobile Platform - CaaStle Case Study"
+        description="Architected and built a multi-tenant mobile platform for CaaStle, enabling 25+ apparel brands including Gwynniebee, Haverdash, and Teacher Style Box to launch their mobile apps."
+        keywords="mobile app development, multi-tenant platform, Android, iOS, Kotlin, Swift, e-commerce, white-label"
+        url="/case-study/ecommerce-mobile"
+        type="article"
+        structuredData={ecommerceStructuredData}
+      />
       {/* Hero */}
       <section className="case-study-hero">
         <div className="container">

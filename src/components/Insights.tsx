@@ -82,6 +82,8 @@ export default function Insights() {
               <div 
                 className="insight-card-image"
                 style={{ backgroundImage: `url(${post.image})` }}
+                aria-label={`${post.title} - ${post.category} article image`}
+                role="img"
               >
                 <span className="insight-card-category">
                   {post.featured ? '⭐ Featured' : post.category}

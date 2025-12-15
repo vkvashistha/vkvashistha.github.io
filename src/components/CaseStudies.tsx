@@ -93,6 +93,8 @@ export default function CaseStudies() {
               <div 
                 className="case-study-card-image"
                 style={{ backgroundImage: `url(${study.image})` }}
+                aria-label={`${study.company} - ${study.title} case study image`}
+                role="img"
               />
               <div className="case-study-card-content">
                 <p className="case-study-card-company">{study.company}</p>

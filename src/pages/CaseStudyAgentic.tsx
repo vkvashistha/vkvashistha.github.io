@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const stats = [
   { value: '6+', label: 'Agentic Projects' },
@@ -14,9 +15,60 @@ const techStack = [
   'Qdrant', 'OpenAI', 'GPT-4', 'Python', 'GraphQL', 'AWS'
 ]
 
+const agenticStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Agentic AI Applications - Turing Projects Case Study",
+  "description": "Built multiple production-grade agentic AI applications for Turing's enterprise clients across Real Estate, Accounting, Freight, E-Commerce, and Healthcare sectors.",
+  "author": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "datePublished": "2024-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vivekvashistha.me/case-study/agentic-ai"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vivekvashistha.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Case Studies",
+        "item": "https://vivekvashistha.me/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Agentic AI Applications",
+        "item": "https://vivekvashistha.me/case-study/agentic-ai"
+      }
+    ]
+  }
+}
+
 export default function CaseStudyAgentic() {
   return (
     <div className="case-study-page">
+      <SEO
+        title="Agentic AI Applications - Turing Projects Case Study"
+        description="Built multiple production-grade agentic AI applications for Turing's enterprise clients across Real Estate, Accounting, Freight, E-Commerce, and Healthcare sectors."
+        keywords="agentic AI, Langgraph, Langchain, FastAPI, Neo4j, enterprise AI, AI agents, automation"
+        url="/case-study/agentic-ai"
+        type="article"
+        structuredData={agenticStructuredData}
+      />
       {/* Hero */}
       <section className="case-study-hero">
         <div className="container">

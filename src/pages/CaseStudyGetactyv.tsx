@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const stats = [
   { value: '30+', label: 'Exercises Supported' },
@@ -14,9 +15,60 @@ const techStack = [
   'Azure Speech Service', 'Google Speech API', 'Computer Vision', 'WebRTC'
 ]
 
+const getactyvStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GetActyv - AI Exercise Coach Case Study",
+  "description": "A computer vision solution enabling physicians to prescribe exercises and automatically monitor patients as they perform them - all through a standard webcam or phone camera.",
+  "author": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Vivek Vashistha"
+  },
+  "datePublished": "2024-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vivekvashistha.me/case-study/getactyv"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vivekvashistha.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Case Studies",
+        "item": "https://vivekvashistha.me/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GetActyv - AI Exercise Coach",
+        "item": "https://vivekvashistha.me/case-study/getactyv"
+      }
+    ]
+  }
+}
+
 export default function CaseStudyGetactyv() {
   return (
     <div className="case-study-page">
+      <SEO
+        title="GetActyv - AI Exercise Coach Case Study"
+        description="A computer vision solution enabling physicians to prescribe exercises and automatically monitor patients as they perform them - all through a standard webcam or phone camera."
+        keywords="computer vision, MediaPipe, pose detection, healthcare AI, exercise monitoring, physical therapy, AI coach"
+        url="/case-study/getactyv"
+        type="article"
+        structuredData={getactyvStructuredData}
+      />
       {/* Hero */}
       <section className="case-study-hero">
         <div className="container">
