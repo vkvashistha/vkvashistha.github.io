@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import Preloader from './components/Preloader'
+import { usePageTracking } from './hooks/usePageTracking'
 
 // Pages
 import HomePage from './pages/HomePage'
@@ -22,6 +23,11 @@ function ScrollToTop() {
   return null
 }
 
+function PageTracking() {
+  usePageTracking()
+  return null
+}
+
 function App() {
   const [loading, setLoading] = useState(true)
 
@@ -37,6 +43,7 @@ function App() {
     <>
       {loading && <Preloader />}
       <ScrollToTop />
+      <PageTracking />
       <Navbar />
       <main>
         <Routes>

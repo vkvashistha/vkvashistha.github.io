@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Calendar } from 'lucide-react'
+import { analytics } from '../utils/analytics'
 
 const stats = [
   { value: '50+', label: 'AI Projects' },
@@ -44,6 +45,7 @@ export default function Hero() {
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-primary-custom"
+            onClick={() => analytics.trackCTAClick('Book a Strategy Call', 'Hero')}
           >
             <Calendar size={18} />
             Book a Strategy Call
@@ -51,6 +53,7 @@ export default function Hero() {
           <a 
             href="#case-studies" 
             className="btn-secondary-custom"
+            onClick={() => analytics.trackButtonClick('View Case Studies', 'Hero')}
           >
             View Case Studies
             <ArrowRight size={18} />

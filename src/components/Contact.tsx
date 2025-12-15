@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Calendar, Linkedin, Github, Twitter } from 'lucide-react'
+import { analytics } from '../utils/analytics'
 
 interface FormData {
   name: string
@@ -59,6 +60,9 @@ export default function Contact() {
     setSubmitted(false)
 
     if (validateForm()) {
+      // Track form submission
+      analytics.trackFormSubmit('Contact Form')
+      
       // Create mailto link as fallback
       const mailtoLink = `mailto:vkvashistha@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`
       window.location.href = mailtoLink
@@ -121,6 +125,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-method"
                 style={{ textDecoration: 'none' }}
+                onClick={() => analytics.trackCTAClick('Book a Call', 'Contact Section')}
               >
                 <div className="contact-method-icon">
                   <Calendar size={24} />
@@ -161,6 +166,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="social-link"
                   aria-label="LinkedIn"
+                  onClick={() => analytics.trackSocialClick('LinkedIn')}
                 >
                   <Linkedin size={20} />
                 </a>
@@ -170,6 +176,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="social-link"
                   aria-label="GitHub"
+                  onClick={() => analytics.trackSocialClick('GitHub')}
                 >
                   <Github size={20} />
                 </a>
@@ -179,6 +186,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="social-link"
                   aria-label="Twitter"
+                  onClick={() => analytics.trackSocialClick('Twitter')}
                 >
                   <Twitter size={20} />
                 </a>

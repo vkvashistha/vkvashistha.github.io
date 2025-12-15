@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import SEO from '../components/SEO'
+import { analytics } from '../utils/analytics'
 
 const stats = [
   { value: '25+', label: 'AI Chatbots Built' },
@@ -59,6 +61,10 @@ const edtechStructuredData = {
 }
 
 export default function CaseStudyEdtech() {
+  useEffect(() => {
+    analytics.trackCaseStudyView('EdTech AI Platform')
+  }, [])
+
   return (
     <div className="case-study-page">
       <SEO
